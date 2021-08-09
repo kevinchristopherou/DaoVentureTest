@@ -1,9 +1,8 @@
 pragma solidity 0.8.4;
 
 import "./IERC20Minimal.sol";
-import "@openzeppelin/contracts/ownership/Ownable.sol";
 
-contract SellCar is Ownable {
+contract SellCar {
     struct CarEntity {
         uint256 car_id;
         address car_owner;
@@ -18,7 +17,7 @@ contract SellCar is Ownable {
     function newCarEntity (
         address car_owner, 
         uint256 car_price
-    )   public onlyOwner returns (uint256) {
+    )   public returns (uint256) {
         uint256 car_count_ = ++ car_count;
 
         CarEntity storage carEntity_ = carObjectList[car_count_];
